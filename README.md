@@ -57,10 +57,18 @@ SOUND_FILES = 'absolute/path/to/sound/file/directory'
 KECK_API = 'Keck particle api url'
 ```
 
-ensure the following alias exists on the user account interested in using this software
+ensure the following aliases exists on the user account interested in using this software
 
 ```bash
-alias dust_alarm="/jac_sw/itsroot/install/itsScripts/bin/Linux-x86_64/dust_alarm.py"
+alias dust_alarm="nohup /jac_sw/itsroot/install/itsScripts/bin/Linux-x86_64/dust-alarm/dust_alarm.py > /dev/null 2>&1"
+alias dust_alarm_quiet="nohup /jac_sw/itsroot/install/itsScripts/bin/Linux-x86_64/dust-alarm/dust_alarm.py --quiet > /dev/null 2>&1"
 ```
 
 ## Usage
+
+```bash
+# normal usage
+$ dust_alarm  # fg and end the process to end the alarm program or kill the whole terminal.
+# quiet usage, no output to terminal
+$ dust_alarm_quiet
+```
