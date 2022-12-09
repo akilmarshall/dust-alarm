@@ -50,6 +50,13 @@ flac -d <flac_file>
 
 Issue a make in /jac_sw/itsroot/src/itsScripts directory.
 
+Create a file secret.py with two variables
+
+```python
+SOUND_FILES = 'absolute/path/to/sound/file/directory'
+KECK_API = 'Keck particle api url'
+```
+
 ensure the following alias exists on the user account interested in using this software
 
 ```bash
