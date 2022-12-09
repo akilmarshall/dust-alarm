@@ -60,8 +60,8 @@ KECK_API = 'Keck particle api url'
 ensure the following aliases exists on the user account interested in using this software
 
 ```bash
-alias dust_alarm="nohup /jac_sw/itsroot/install/itsScripts/bin/Linux-x86_64/dust-alarm/dust_alarm.py > /dev/null 2>&1"
-alias dust_alarm_quiet="nohup /jac_sw/itsroot/install/itsScripts/bin/Linux-x86_64/dust-alarm/dust_alarm.py --quiet > /dev/null 2>&1"
+alias dust_alarm="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py &"
+alias dust_alarm_quiet="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py --quiet &"
 ```
 
 ## Usage
