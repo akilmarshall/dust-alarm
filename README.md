@@ -48,16 +48,14 @@ flac -d <flac_file>
 
 ## Install
 
-Issue a make in /jac_sw/itsroot/src/itsScripts directory.
-
-Create a file secret.py with two variables
+Create a file secret.py in the same directory as dust_alarm.py with the following two variables
 
 ```python
 SOUND_FILES = 'absolute/path/to/sound/file/directory'
 KECK_API = 'Keck particle api url'
 ```
 
-ensure the following aliases exists on the user account interested in using this software
+Ensure the following aliases exists on the user account interested in using this software
 
 ```bash
 alias dust_alarm="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py &"
