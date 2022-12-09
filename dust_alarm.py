@@ -7,11 +7,9 @@ When the particle count exceeds this threshold an audio alarm is played.
 
 WAM December 8 2022
 """
-#TODO make verbosity optional
 from argparse import ArgumentParser
 from os import system
 from pathlib import Path
-from pprint import pprint
 from time import sleep
 
 from requests import get
@@ -24,7 +22,7 @@ SOUND_PATH = Path(SOUND_FILES)
 
 parser = ArgumentParser(description=__doc__)
 parser.add_argument('--tolerance', '-t', type=float, default=TOLERANCE, help=f'define the partice tolerance ceiling. default: {TOLERANCE}')
-parser.add_argument('--quiet', '-1', action='store_true', default=False, help='when passed nothing is output to stdout') 
+parser.add_argument('--quiet', '-q', action='store_true', default=False, help='when passed nothing is output to stdout') 
 parser.add_argument('--simulate', '-s', type=float, help='set the paticle value for the first particle check. intended for testing purposes')
 
 args = parser.parse_args()
@@ -38,7 +36,7 @@ def sound_file(particles, most=500):
     """
     intervals = [(i, i + 50) for i in range(50, most, 50)]
     for (a, b) in intervals:
-        if a < particles < b:
+        if a < particles <= b:
             return SOUND_PATH / f'{a}.wav'
     if particles > most:
         return SOUND_PATH / f'{most}.wav'
