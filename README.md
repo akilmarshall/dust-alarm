@@ -7,7 +7,7 @@ The dust alarm is a gui program that monitors an API and warns a user when the p
 
 ## Development plan
 
-### Alpha
+### Beta
 
 Create a command line program that can be control by parameter that sounds an audible alarm when the particle count has exceed the tolerance.
 
@@ -15,7 +15,7 @@ parameters:
 
 - particle tolerance
 
-### Beta
+### Release
 
 Create a gui program (tkinter) that audibly warns the user when the particle count has exceeded tolerance.
 
