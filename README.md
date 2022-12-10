@@ -58,15 +58,19 @@ KECK_API = 'Keck particle api url'
 Ensure the following aliases exists on the user account interested in using this software
 
 ```bash
-alias dust_alarm="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py &"
-alias dust_alarm_quiet="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py --quiet &"
+alias dust_alarm="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py"
+alias dust_alarm_quiet="/jac_sw/itsroot/src/itsScripts/arc/general/dust-alarm/dust_alarm.py --quiet"
 ```
 
 ## Usage
 
 ```bash
 # normal usage
-$ dust_alarm  # fg and end the process to end the alarm program or kill the whole terminal.
+$ dust_alarm &  # fg and end the process to end the alarm program or kill the whole terminal.
 # quiet usage, no output to terminal
-$ dust_alarm_quiet
+$ dust_alarm_quiet &
+
+# define tolerance explicitly
+$ dust_alarm -t 100 &
+$ dust_alarm_quiet -t 100 &
 ```
