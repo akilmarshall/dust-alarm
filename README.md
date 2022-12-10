@@ -71,6 +71,6 @@ $ dust_alarm &  # fg and end the process to end the alarm program or kill the wh
 $ dust_alarm_quiet &
 
 # define tolerance explicitly
-$ dust_alarm -t 100 &
+$ dust_alarm --tolerance 100 &
 $ dust_alarm_quiet -t 100 &
 ```
