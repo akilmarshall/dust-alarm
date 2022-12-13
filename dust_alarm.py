@@ -2,7 +2,8 @@
 """
 Version: Beta
 
-This program checks at an interval of 5 minutes the particle count in Keck's inner dome against a threashold.
+This program checks at an interval of 5 minutes the particle count in Keck's
+inner dome against a threashold.
 When the particle count exceeds this threshold an audio alarm is played.
 
 WAM December 8 2022
@@ -29,6 +30,7 @@ args = parser.parse_args()
 
 TOLERANCE = args.tolerance
 
+
 def sound_file(particles, most=500):
     """
     For a given particle count, return the path to the appropreate sound file.
@@ -37,7 +39,8 @@ def sound_file(particles, most=500):
 
     warning: if called with a particle count of less than 50, None is returned
     """
-    # most is equal to the audio file for the largest amount of particles audio warnings are issued for.
+    # most is equal to the audio file for the largest amount of particles audio
+    # warnings are issued for.
     # if new files are created update most accordingly
     intervals = [(i, i + 50) for i in range(50, most, 50)]
     for (a, b) in intervals:
@@ -45,6 +48,7 @@ def sound_file(particles, most=500):
             return SOUND_PATH / f'{a}.wav'
     if particles > most:
         return SOUND_PATH / f'{most}.wav'
+
 
 def particles():
     """
@@ -55,6 +59,7 @@ def particles():
         body = response.text.split('\n')
         return float(body[-1].split()[1])
     return 0
+
 
 def play_sound(path):
     """
@@ -76,14 +81,16 @@ if p_3m > TOLERANCE:
 if not args.quiet:
     print(f'particle count: {p_3m}')
 
-# forever, sleep 5 minutes 
+# forever, sleep 5 minutes
 # call the API and attempt to sound an alarm
 while True:
     sleep(5 * 60)  # sleep for 5 minutes
     p_3m = particles()
+
+    if not args.quiet:
+        print(f'particle count: {p_3m}')
+
     if p_3m > TOLERANCE:
         # play audio alarm
         play_sound(sound_file(p_3m))
 
-    if not args.quiet:
-        print(f'particle count: {p_3m}')
