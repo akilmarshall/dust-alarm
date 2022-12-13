@@ -68,6 +68,9 @@ def play_sound(path):
     system(f'paplay {path.absolute()}')
 
 
+# print current tolerance
+print(f'tolerance: {TOLERANCE}')
+
 # call the API and attempt to sound an alarm
 if args.simulate:
     p_3m = args.simulate
