@@ -71,18 +71,20 @@ def play_sound(path):
 # print current tolerance
 print(f'tolerance: {TOLERANCE}')
 
+
 # call the API and attempt to sound an alarm
 if args.simulate:
     p_3m = args.simulate
 else:
     p_3m = particles()
 
+if not args.quiet:
+    print(f'particle count: {p_3m}')
+
 if p_3m > TOLERANCE:
     # play audio alarm
     play_sound(sound_file(p_3m))
 
-if not args.quiet:
-    print(f'particle count: {p_3m}')
 
 # forever, sleep 5 minutes
 # call the API and attempt to sound an alarm
