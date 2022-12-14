@@ -9,6 +9,7 @@ When the particle count exceeds this threshold an audio alarm is played.
 WAM December 8 2022
 """
 from argparse import ArgumentParser
+from datetime import datetime
 from os import system
 from pathlib import Path
 from time import sleep
@@ -79,7 +80,8 @@ else:
     p_3m = particles()
 
 if not args.quiet:
-    print(f'particle count: {p_3m}')
+    now = datetime.now()
+    print(f'particle count: {p_3m}\t{now.year}{now.month:02d}{now.day:02d} {now.hour}:{now.minute:02d}')
 
 if p_3m > TOLERANCE:
     # play audio alarm
@@ -93,7 +95,8 @@ while True:
     p_3m = particles()
 
     if not args.quiet:
-        print(f'particle count: {p_3m}')
+        now = datetime.now()
+        print(f'particle count: {p_3m}\t{now.year}{now.month:02d}{now.day:02d} {now.hour}:{now.minute:02d}')
 
     if p_3m > TOLERANCE:
         # play audio alarm
