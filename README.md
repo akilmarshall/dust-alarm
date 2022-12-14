@@ -29,6 +29,11 @@ Create a gui program (tkinter) that audibly warns the user when the particle cou
 
 I used the web interface to generate flac files for the following phrases (incorrect spelling for proper pronunciation):
 
+- Less than ten particles have been detected in one leeter of air
+- The particle count has exceeded ten particles per leeter of air
+- The particle count has exceeded twenty particles per leeter of air
+- The particle count has exceeded thirty particles per leeter of air
+- The particle count has exceeded forty particles per leeter of air
 - The particle count has exceeded fifty particles per leeter of air
 - The particle count has exceeded one hundred particles per leeter of air
 - The particle count has exceeded one hundred and fifty particles per leeter of air
