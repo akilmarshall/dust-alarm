@@ -32,23 +32,24 @@ args = parser.parse_args()
 TOLERANCE = args.tolerance
 
 
-def sound_file(particles, most=500):
+def sound_file(particles):
     """
     For a given particle count, return the path to the appropreate sound file.
     i.e. for a particle count of 201 return the path to the sound file 200.wav
     'the particle count has exceeded 200 particles per liter of air'
 
-    warning: if called with a particle count of less than 50, None is returned
     """
-    # most is equal to the audio file for the largest amount of particles audio
-    # warnings are issued for.
-    # if new files are created update most accordingly
-    intervals = [(i, i + 50) for i in range(50, most, 50)]
-    for (a, b) in intervals:
+    files = [int(f.stem) for f in SOUND_PATH.iterdir()]
+    files = sorted(files)
+    sound_file = ''
+    for a, b in zip(files, files[1:]):
         if a < particles <= b:
-            return SOUND_PATH / f'{a}.wav'
-    if particles > most:
-        return SOUND_PATH / f'{most}.wav'
+            sound_file = SOUND_PATH / f'{a}.wav'
+            break
+    else:
+        sound_file = SOUND_PATH / '500.wav'
+
+    return sound_file
 
 
 def particles():
